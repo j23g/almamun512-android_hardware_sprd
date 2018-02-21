@@ -15,16 +15,16 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+#LOCAL_PATH := $(call my-dir)
 
 supported_boards := \
 	sc8810 \
 	scx15 \
 
 ifneq (,$(filter $(supported_boards),$(TARGET_BOARD_PLATFORM)))
-include $(call all-named-subdir-makefiles-under,$(TARGET_BOARD_PLATFORM))
+include $(call all-named-subdir-makefiles,$(TARGET_BOARD_PLATFORM))
 endif
 
 ifeq ($(TARGET_CAMERA_OPEN_SOURCE),true)
-include $(call all-named-subdir-makefiles-under,sc8830)
+include $(call all-named-subdir-makefiles,sc8830)
 endif

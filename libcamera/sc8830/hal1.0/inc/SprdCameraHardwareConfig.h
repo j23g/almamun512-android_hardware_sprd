@@ -415,20 +415,20 @@ struct config_element sprd_front_camera_hardware_config[] = {
 	{"whitebalance-values", "auto,incandescent,fluorescent,daylight,cloudy-daylight"},
 	{"whitebalance", "auto"},
 #if defined(CONFIG_FRONT_CAMERA_SUPPORT_5M)
-	{"picture-size-values", "2880x1920,2576x1932,2048x1536,1600x1200,1280x960,640x480"},
+	{"picture-size-values", "2576x1932,2576x1449,2048x1536,1600x1200,1280x960,640x480"},
 #elif defined(CONFIG_FRONT_CAMERA_SUPPORT_3M)
 	{"picture-size-values", "2048x1536,1600x1200,1280x960,640x480"},
 #elif defined(CONFIG_FRONT_CAMERA_SUPPORT_2M)
-	{"picture-size-values", "1600x1200,1280x960,640x480"},
+	{"picture-size-values", "1920x1080,1600x1200,1280x960,640x480"},
 #else
-	{"picture-size-values", "640x480,320x240"},
+	{"picture-size-values", "1920x1080,1600x1200,1280x960,640x480,320x240"},
 #endif
 	{"picture-size", "640x480"},
-	{"preview-size-values",	"720x480,640x480,352x288,320x240,176x144"},
-	{"preview-size", "720x480"},
+	{"preview-size-values", "1920x1080,1280x960,1280x720,720x480,640x480,352x288,320x240,176x144"},
+	{"preview-size", "1920x1080"},
 	{"video-size-values",  ""},
-	{"video-size", "720x480"},
-	{"video-picture-size-values", "1280x960,1280x960,1280x960"},
+	{"video-size", "1920x1080"},
+	{"video-picture-size-values", "1920x1080,1920x1080,1920x1080,1920x1080"},
 	{"preferred-preview-size-for-video", ""},
 	{"video-frame-format-values", "yuv420sp,yuv420p"},
 	{"video-frame-format", "yuv420sp"},
@@ -438,7 +438,7 @@ struct config_element sprd_front_camera_hardware_config[] = {
 	{"picture-format", "jpeg"},
 	{"jpeg-quality", "100"},
 	{"preview-frame-rate-values", "5,10,12,15,20,25,30"},
-	{"preview-frame-rate", "25"},
+	{"preview-frame-rate", "30"},
 	{"preview-fps-range-values", "(1000,30000)"},
 	{"preview-fps-range", "1000,30000"},
 	{"jpeg-thumbnail-size-values", "320x240,0x0"},
@@ -478,11 +478,11 @@ struct config_element sprd_front_camera_hardware_config[] = {
 	{"sharpness-values", "0,1,2,3,4,5,6"},
 	{"sharpness", "3"},
 #endif
-	{"min-exposure-compensation", "0"},
-	{"max-exposure-compensation", "0"},
+	{"min-exposure-compensation", "-1"},
+	{"max-exposure-compensation", "1"},
 	{"exposure-compensation","0"},
-	{"exposure-compensation-step", "0"},
-	{"focal-length", "3.75"},
+	{"exposure-compensation-step", "0.5"},
+	{"focal-length", "1.924"},
 	{"horizontal-view-angle", "54"},
 	{"vertical-view-angle", "54"},
 #ifndef CONFIG_CAMERA_FLASH_NOT_SUPPORT
@@ -523,7 +523,7 @@ struct config_element sprd_front_camera_hardware_config[] = {
 	{"max-slow-motion","3"},
 	{"slow-motion-values", "1"},
 	{"slow-motion", "1"},
-	{"max-num-metering-areas", "0"},
+	{"max-num-metering-areas", "1"},
 #ifndef CONFIG_EXPOSURE_METERING_NOT_SUPPORT
 	{"auto-exposure","center-weighted"},
 	{"auto-exposure-values", "frame-average,center-weighted,spot-metering"},
@@ -571,12 +571,12 @@ struct config_element sprd_back_camera_hardware_config[] = {
 	{"preview-size-values", "1280x720,720x480,640x480,352x288,320x240,176x144"},
 	{"preview-size", "720x480"},
 #else
-	{"preview-size-values", "1920x1088,1280x960,1280x720,720x480,640x480,352x288,320x240,176x144"},
-	{"preview-size", "1280x960"},
+	{"preview-size-values", "1920x1080,1280x960,1280x720,720x480,640x480,352x288,320x240,176x144"},
+	{"preview-size", "1920x1080"},
 #endif
 #endif
 	{"video-size-values", ""},
-	{"video-size", "1920x1088"},
+	{"video-size", "1920x1080"},
 	{"preferred-preview-size-for-video", ""},
 	{"video-frame-format-values", "yuv420sp,yuv420p"},
 	{"video-frame-format", "yuv420sp"},
@@ -627,7 +627,7 @@ struct config_element sprd_back_camera_hardware_config[] = {
 #endif
 #ifndef CONFIG_CAMERA_AUTOFOCUS_NOT_SUPPORT
 #if	defined(CONFIG_CAMERA_CAF)
-	{"focus-mode-values", "auto,macro,continuous-picture,continuous-video,infinity"},
+	{"focus-mode-values", "auto,macro,face-priority,continuous-picture,continuous-video,infinity"},
 	{"focus-mode", "auto"},
 #else
 	{"focus-mode-values", "auto,macro,infinity"},
@@ -644,16 +644,18 @@ struct config_element sprd_back_camera_hardware_config[] = {
 	{"min-exposure-compensation", "-4"},
 	{"max-exposure-compensation", "4"},
 	{"exposure-compensation","0"},
-	{"exposure-compensation-step", "1"},
+	{"exposure-compensation-step", "0.5"},
 //back camera add auto antibanding mode
 /** SPRD: add { */
 	{"antibanding-values","auto,50hz,60hz"},
 	{"antibanding","auto"},
 /** SPRD: add } */
 	{"antibanding-supported","true"},
-	{"focal-length", "3.75"},
-	{"horizontal-view-angle", "48"},
-	{"vertical-view-angle", "48"},
+	{"focal-length", "3.30"},
+	{"fnumber-value-numerator", "22"},
+	{"fnumber-value-denominator", "10"},
+	{"horizontal-view-angle", "54"},
+	{"vertical-view-angle", "54"},
 #ifndef CONFIG_CAMERA_FLASH_NOT_SUPPORT
 	{"flash-mode-values", "off,on,torch,auto"},
 	{"flash-mode", "off"},
