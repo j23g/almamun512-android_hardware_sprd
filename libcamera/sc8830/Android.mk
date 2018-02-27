@@ -71,6 +71,7 @@ LOCAL_MODULE_RELATIVE_PATH := hw
 
 LOCAL_SHARED_LIBRARIES := \
 	libutils \
+	liblog \
 	libmemoryheapion \
 	libcamera_client \
 	libcutils \
@@ -78,6 +79,7 @@ LOCAL_SHARED_LIBRARIES := \
 	libcamera_metadata \
 	libdl \
 	libui \
+	libgui \
 	libbinder
 
 ifeq ($(strip $(ISP_HW_VER)),1.0)
@@ -212,7 +214,6 @@ LOCAL_SRC_FILES += \
 	isp2.0/ae/ae_dummy.c \
 	isp2.0/ae/ae_sprd_ctrl.c \
 	isp2.0/calibration/isp_otp_calibration.c \
-	isp2.0/calibration/backup \
 	isp2.0/af/sprd_af_ctrl.c \
 	isp2.0/af/af_ctrl.c \
 	isp2.0/af/af_dummy.c \

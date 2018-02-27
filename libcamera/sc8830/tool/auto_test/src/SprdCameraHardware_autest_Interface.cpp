@@ -714,8 +714,8 @@ int32_t rtn = 0;
 		uint16_t* tmp_lnc_ptr = 0;
 		uint16_t len = 0;
 		fix_ptr = (struct sensor_raw_fix_info*)sensor_ptr->raw_info_ptr->fix_ptr;
-		tmp_lnc_ptr = (uint16_t*)(fix_ptr->lnc.map[0][0].param_addr);
-		len = fix_ptr->lnc.map[0][0].len;
+		tmp_lnc_ptr = (uint16_t*)(fix_ptr->lnc.map.param_addr);
+		len = fix_ptr->lnc.map.len;
 		memcpy((void*)len_tab_addr, (void*)tmp_lnc_ptr, len);
 	} else {
 		if (ISP_Cali_GetLensTabs(tmp_addr, lsc_grid, img_size, (uint32_t*)len_tab_addr, index, 0, sub_cmd)) {
@@ -887,8 +887,8 @@ int32_t rtn = 0;
 		uint16_t* tmp_lnc_ptr = 0;
 		uint16_t len = 0;
 		fix_ptr = (struct sensor_raw_fix_info*)sensor_ptr->raw_info_ptr->fix_ptr;
-		tmp_lnc_ptr = (uint16_t*)fix_ptr->lnc.map[0][0].param_addr;
-		len = fix_ptr->lnc.map[0][0].len;
+		tmp_lnc_ptr = (uint16_t*)fix_ptr->lnc.map.param_addr;
+		len = fix_ptr->lnc.map.len;
 		memcpy((void*)len_tab_addr, (void*)tmp_lnc_ptr, len);
 	} else {
 		if (ISP_Cali_GetLensTabs(tmp_addr, lsc_grid, img_size, (uint32_t*)len_tab_addr, index, 0, sub_cmd)) {
